@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+}
+
+.autocomplete-container {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-results {
+  position: absolute;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px; /* Or any other suitable max-height */
+  overflow-y: auto;
+  background-color: white; /* Set the background color */
+}
+
+.autocomplete-results div {
+  padding: 8px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.autocomplete-results div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-selected {
+    background-color: #add8e6 !important; /* Light blue, change as desired */
+}
