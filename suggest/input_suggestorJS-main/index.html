@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Скролл к элементу</title>
+<style>
+  #myContainer {
+    height: 200px; /* Ограничиваем высоту для появления скролла */
+    width: 300px;
+    overflow-y: scroll; /* Добавляем вертикальный скролл */
+    border: 1px solid black;
+    padding: 10px;
+  }
+  #myContainer div {
+    padding: 15px;
+    margin-bottom: 5px;
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+  }
+  .highlight { /* Стиль для подсветки (необязательно) */
+      background-color: yellow !important;
+      transition: background-color 0.5s ease;
+  }
+</style>
+</head>
+<body>
+
+<div id="myContainer">
+  <div id="item-1">Элемент 1</div>
+  <div id="item-2">Элемент 2</div>
+  <div id="item-3">Элемент 3</div>
+  <div id="item-4">Элемент 4</div>
+  <div id="item-5">Элемент 5</div>
+  <div id="item-6">Элемент 6</div>
+  <div id="item-7">Элемент 7</div>
+  <div id="item-8">Элемент 8</div>
+  <div id="item-9">Элемент 9</div>
+  <div id="item-10">Элемент 10</div>
+  <div id="item-11">Элемент 11</div>
+  <div id="item-12">Элемент 12</div>
+  <div id="item-13">Элемент 13</div>
+  <div id="item-14">Элемент 14</div>
+  <div id="item-15">Элемент 15</div>
+</div>
+
+<br>
+<input type="text" id="elementIdInput" placeholder="Введите ID элемента (например, item-12)">
+<button onclick="scrollToElement()">Скроллить к элементу</button>
+
+<script>
+  function scrollToElement() {
+    const elementId = document.getElementById('elementIdInput').value; // Получаем ID из поля ввода
+    if (!elementId) {
+      alert('Пожалуйста, введите ID элемента.');
+      return;
+    }
+
+    const targetElement = document.getElementById(elementId);
+
+    if (targetElement) {
+      // --- Основная логика скролла ---
+      targetElement.scrollIntoView({
+        behavior: 'smooth', // Плавная прокрутка ('auto' - мгновенная)
+        block: 'nearest',   // Вертикальное выравнивание ('start', 'center', 'end', 'nearest')
+        // inline: 'nearest' // Горизонтальное выравнивание (если есть гориз. скролл)
+      });
+
+      // Необязательно: подсветить элемент на короткое время
+      targetElement.classList.add('highlight');
+      setTimeout(() => {
+        targetElement.classList.remove('highlight');
+      }, 1500); // Убрать подсветку через 1.5 секунды
+
+    } else {
+      alert(`Элемент с ID "${elementId}" не найден в контейнере.`);
+    }
+  }
+</script>
+
+</body>
+</html>
