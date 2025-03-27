@@ -1,0 +1,44 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+#list-container {
+  /* Высота будет задана динамически через JS */
+  /* Примерная высота для 2х элементов, но JS переопределит */
+  height: 82px;
+  overflow: hidden; /* Скрываем стандартную прокрутку */
+  border: 1px solid #ccc;
+  outline: none;
+  position: relative; /* Важно для offsetTop */
+  box-sizing: border-box; /* Учитываем padding и border в высоте/ширине */
+}
+
+
+.list-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box; /* Учитываем padding и border в высоте/ширине */
+  /* Убедитесь, что у всех элементов одинаковая высота! */
+  /* Можно задать фиксированную height, если нужно */
+  /* height: 41px; */
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* Стиль для *логически* выбранного элемента */
+/* Этот класс будет перемещаться по всем элементам */
+.list-item.selected {
+  background-color: #e0f7ff;
+  font-weight: bold;
+}
+
+/* Стиль для контейнера в фокусе (опционально) */
+#list-container:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
