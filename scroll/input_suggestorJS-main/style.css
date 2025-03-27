@@ -1,0 +1,70 @@
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Учитывает padding и border в общей ширине */
+  font-size: 16px;
+}
+
+.results-container {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  max-height: 300px; /* Ограничение высоты для прокрутки */
+  overflow-y: auto; /* Добавляет прокрутку, если нужно */
+}
+
+.result-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: default; /* Или pointer, если хотите добавить действие */
+  transition: background-color 0.2s ease;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item:hover {
+  background-color: #f9f9f9;
+}
+
+.result-item span {
+  display: block; /* Каждый элемент данных на новой строке */
+  font-size: 14px;
+  color: #555;
+}
+
+.result-item span strong {
+  color: #333;
+}
+
+.no-results {
+  padding: 15px;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
